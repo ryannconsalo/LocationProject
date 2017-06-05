@@ -17,6 +17,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     var currentUserLocation: CLLocation!
     
     override func viewDidLoad() {
+    //added comment
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
