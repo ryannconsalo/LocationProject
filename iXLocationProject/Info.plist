@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationUsageDescription</key>
+	<string>To know your current location</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To steal your photos....</string>
 	<key>NSLocationAlwaysUsageDescription</key>

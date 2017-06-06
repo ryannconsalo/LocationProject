@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActivityDelegate, MKMapViewDelegate {
     
@@ -21,11 +22,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        /*let location = CLLocationCoordinate2D(latitude: -33.918861, longitude: 18.423300)
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegion(center: location, span: span)
+        //let location = CLLocationCoordinate2D(latitude: -33.918861, longitude: 18.423300)
+        //let span = MKCoordinateSpanMake(0.05, 0.05)
+        //let region = MKCoordinateRegion(center: location, span: span)
         //map.setRegion(region, animated: true)
-        */
+        
         //map.showsUserLocation = true
         
         locationManager = CLLocationManager()
@@ -42,12 +43,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
         
         //locationManager.requestWhenInUseAuthorization()
         
-
-        
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
-        }
+        locationManager.startUpdatingLocation()
         
         setMapType()
     }
@@ -67,6 +63,14 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
         // Get the users location from the array of locations
         // Sorts based on what is most accurate - so get the first
         let userLocation: CLLocation = locations[0] as CLLocation
+        
+        /*let span : MKCoordinateSpan = MKCoordinateSpanMake(0.05, 0.05)
+        let myLocation : CLLocationCoordinate2D = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
+        let region : MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
+        map.setRegion(region, animated: true)
+        */
+        self.map.showsUserLocation = true
+        
         
         // You can call stopUpdatingLocation() to stop listening for location updates
         // manager.stopUpdatingLocation()

@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="krB-KL-uOn">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="krB-KL-uOn">
                                 <rect key="frame" x="0.0" y="56" width="375" height="554"/>
                             </mapView>
                         </subviews>
@@ -400,10 +400,10 @@
             </objects>
             <point key="canvasLocation" x="2407.1999999999998" y="358.4707646176912"/>
         </scene>
-        <!--View Controller-->
+        <!--Activity Details View Controller-->
         <scene sceneID="WTC-64-RzI">
             <objects>
-                <viewController id="YKz-eM-w2U" sceneMemberID="viewController">
+                <viewController id="YKz-eM-w2U" customClass="ActivityDetailsViewController" customModule="iXLocationProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="79I-Vs-UlP"/>
                         <viewControllerLayoutGuide type="bottom" id="XNz-E2-3tb"/>
@@ -446,16 +446,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z9W-r2-zBX">
-                                <rect key="frame" x="16" y="388" width="343" height="232"/>
+                                <rect key="frame" x="16" y="388" width="343" height="183"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP0-Mw-j4R">
-                                <rect key="frame" x="16" y="9" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="UTT-vy-KFS" kind="show" id="qo4-D0-VpT"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Cb-D9-LkT">
                                 <rect key="frame" x="16" y="191" width="343" height="170"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -465,6 +457,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o88-Zd-L72">
+                                <rect key="frame" x="164" y="579" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButton:" destination="YKz-eM-w2U" eventType="touchUpInside" id="wGu-I0-1Cy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -554,7 +554,4 @@
         <image name="noun_960836_cc" width="28" height="28"/>
         <image name="noun_972153_cc" width="28" height="28"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="qo4-D0-VpT"/>
-    </inferredMetricsTieBreakers>
 </document>
