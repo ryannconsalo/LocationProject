@@ -8,8 +8,22 @@
 
 import UIKit
 
-class AddActivityViewController: UIViewController {
+class AddActivityViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    // 3 outlets
+    //var delegate: AddActivityDelegate
+    //var newActivity: Activity
+    // 2 button functions
 
+   
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var delegate: AddActivityDelegate?
+    var newActivity: Activity?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +34,19 @@ class AddActivityViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func addActivity(_ sender: Any) {
+        
+        newActivity?.name = nameTextField.text!
+        newActivity?.description = descriptionTextView.text
+        delegate?.didSaveActivity(activity: newActivity!)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
     
 
     /*

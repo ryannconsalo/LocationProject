@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class FirstViewController: UIViewController, CLLocationManagerDelegate {
+class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActivityDelegate {
     
     @IBOutlet weak var map: MKMapView!
     
@@ -35,12 +35,16 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         
         //locationManager.requestWhenInUseAuthorization()
         
+        let location = CLLocationCoordinate2D(latitude: currentUserLocation.coordinate.latitude, longitude: currentUserLocation.coordinate.longitude)
+        let span = MKCoordinateSpan(0.05, 0.05)
+        let region = MKCoordinateRegion(center: location, span: span)
+        map.setRegion(region, animated: true)
+        
+        map.showUserLoction = true
+        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
         }
-        
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,6 +75,47 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     {
         // An error occurred trying to retrieve users location
         print("Error \(error)")
+    }
+    
+    override func prepare(for segue: UIStoryBoardSegue, sender:Any) {
+        if segue.identifier == "addActivity" {
+            let geopoint = GeoPoint(latitude: currentUserLocation.coordinate.latitude, longitude: currentUserLocation.coordinate.longitude)
+            let activityWithCurrentLocation = Activity()
+            activityWithCurrentLocation?.location = geopoint
+            
+            let navigationController = segue.destination as! UINavigationController
+            let addActivityViewController = navigationController.topViewController as! AddActivityViewController
+            
+            addActivityViewController.newActivity = activityWithcurrentLocation
+            addActivityViewController.delegate = self
+            
+        }
+    }
+    
+    func setMapType() {
+        let mapType = UserDefaults.standard.string(forKey: "mapType")
+        
+        if mapType != nil {
+            if mapType == "hybrid" {
+                map.mapType = .hybrid
+            }
+            
+            // have if statements for all options
+        }
+        
+    }
+    
+    
+    func didSaveActivity(activity: Activity) {
+        print(activity)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2DMake(activity.location.lat, activity.location.long)
+        annotation.title = activity.name
+        map.addAnnotation(annotation)
+    }
+    
+    func didCancelActivity() {
+        
     }
     
     
