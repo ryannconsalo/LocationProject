@@ -10,12 +10,12 @@ import UIKit
 
 class AddActivityViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    // 3 outlets
-    //var delegate: AddActivityDelegate
-    //var newActivity: Activity
-    // 2 button functions
-
-   
+    @IBAction func cancelActivity(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
@@ -40,7 +40,9 @@ class AddActivityViewController: UIViewController, UIImagePickerControllerDelega
         newActivity?.name = nameTextField.text!
         newActivity?.description = descriptionTextView.text
         delegate?.didSaveActivity(activity: newActivity!)
-        dismiss(animated: true, completion: nil)
+        if (locationTextField != nil && dateTextField != nil && nameTextField != nil && descriptionTextView != nil) {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     

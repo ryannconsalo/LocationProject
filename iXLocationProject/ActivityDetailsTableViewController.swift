@@ -1,5 +1,5 @@
 //
-//  ActivityTableViewController.swift
+//  ActivityDetailsTableViewController.swift
 //  iXLocationProject
 //
 //  Created by Ryann Consalo on 2017/06/06.
@@ -8,23 +8,16 @@
 
 import UIKit
 
-class ActivityTableViewController: UITableViewController {
-    
-    var activities : [Activity] = []
+class ActivityDetailsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let activity = Activity()
-        activity?.name = "First"
-        activity?.description = "First Activity"
-        activities.append(activity!)
-        
-        let activity2 = Activity()
-        activity2?.name = "Second"
-        activity2?.description = "Second Activity"
-        activities.append(activity2!)
 
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,30 +29,24 @@ class ActivityTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return activities.count
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "details", sender: self)
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = activities[indexPath.item].name
-        cell.detailTextLabel?.text = activities[indexPath.item].description
-        
+
         return cell
     }
-    
-    
+    */
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

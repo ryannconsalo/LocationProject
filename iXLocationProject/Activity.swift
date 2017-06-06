@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 class Activity {
     
@@ -15,6 +15,7 @@ class Activity {
     var description: String?
     var location : GeoPoint!
     var image: UIImage?
+    
     
     init?() {
         self.name = ""

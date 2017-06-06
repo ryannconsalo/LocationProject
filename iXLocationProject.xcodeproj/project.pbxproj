@@ -18,6 +18,7 @@
 		9275D2451EE6A9A700C47AD4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275D2441EE6A9A700C47AD4 /* SettingsTableViewController.swift */; };
 		9275D2471EE6A9C000C47AD4 /* ActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275D2461EE6A9C000C47AD4 /* ActivityTableViewController.swift */; };
 		9275D2491EE6A9E000C47AD4 /* AddActivityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275D2481EE6A9E000C47AD4 /* AddActivityDelegate.swift */; };
+		9275D24B1EE73EBF00C47AD4 /* ActivityDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275D24A1EE73EBF00C47AD4 /* ActivityDetailsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9275D2441EE6A9A700C47AD4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		9275D2461EE6A9C000C47AD4 /* ActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewController.swift; sourceTree = "<group>"; };
 		9275D2481EE6A9E000C47AD4 /* AddActivityDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddActivityDelegate.swift; sourceTree = "<group>"; };
+		9275D24A1EE73EBF00C47AD4 /* ActivityDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			children = (
 				9275D2281EE57A3500C47AD4 /* AppDelegate.swift */,
 				9275D22A1EE57A3500C47AD4 /* FirstViewController.swift */,
+				9275D24A1EE73EBF00C47AD4 /* ActivityDetailsTableViewController.swift */,
 				9275D2441EE6A9A700C47AD4 /* SettingsTableViewController.swift */,
 				9275D2461EE6A9C000C47AD4 /* ActivityTableViewController.swift */,
 				9275D2481EE6A9E000C47AD4 /* AddActivityDelegate.swift */,
@@ -156,6 +159,7 @@
 			files = (
 				9275D2411EE6A90300C47AD4 /* GeoPoint.swift in Sources */,
 				9275D2491EE6A9E000C47AD4 /* AddActivityDelegate.swift in Sources */,
+				9275D24B1EE73EBF00C47AD4 /* ActivityDetailsTableViewController.swift in Sources */,
 				9275D2431EE6A93300C47AD4 /* Activity.swift in Sources */,
 				9275D2291EE57A3500C47AD4 /* AppDelegate.swift in Sources */,
 				9275D2451EE6A9A700C47AD4 /* SettingsTableViewController.swift in Sources */,
@@ -325,6 +329,7 @@
 				9275D23B1EE57A3500C47AD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

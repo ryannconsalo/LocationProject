@@ -89,56 +89,56 @@ class SettingsTableViewController: UITableViewController {
     */
     
     
-    override func tableView(_tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let color = UserDefaults.standard.string(forKey: "color")
+    override func tableView(_ _tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let mapType = UserDefaults.standard.string(forKey: "mapType")
         
-        if indexPath.section == 2 && color == nil {
+        if indexPath.section == 1 && mapType == nil {
             cell.accessoryType = .checkmark
         }
         
-        if indexPath.section == 2 && indexPath.row == 0 && color == "black" {
+        if indexPath.section == 1 && indexPath.row == 0 && mapType == "hybrid" {
             cell.accessoryType = .checkmark
         }
         
-        if indexPath.section == 2 && indexPath.row == 1 && color == "red" {
+        if indexPath.section == 1 && indexPath.row == 1 && mapType == "satelite" {
             cell.accessoryType = .checkmark
         }
         
-        if indexPath.section == 2 && indexPath.row == 2 && color == "green" {
+        if indexPath.section == 1 && indexPath.row == 2 && mapType == "standard" {
             cell.accessoryType = .checkmark
         }
     }
     
     
-    override func tableView(_tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ _tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Go to map
-        if indexPath.section == 1 && indexPath.row == 0 {
-            self.tabBarController?.selectedIndex = 0
-        }
-        
-        // Go to activity log
-        if indexPath.section == 1 && indexPath.row == 1 {
+        if indexPath.section == 0 && indexPath.row == 2 {
             self.tabBarController?.selectedIndex = 1
         }
         
-        if indexPath.section == 2 {
+        // Go to activity log
+        if indexPath.section == 0 && indexPath.row == 1 {
+            self.tabBarController?.selectedIndex = 0
+        }
+        
+        if indexPath.section == 1 {
             
             // un-select all 
-            tableView.cellForRow(at: IndexPath(row:0, section: 2))?.accessoryType = .none
-            tableView.cellForRow(at: IndexPath(row:1, section: 2))?.accessoryType = .none
-            tableView.cellForRow(at: IndexPath(row:2, section: 2))?.accessoryType = .none
+            tableView.cellForRow(at: IndexPath(row:0, section: 1))?.accessoryType = .none
+            tableView.cellForRow(at: IndexPath(row:1, section: 1))?.accessoryType = .none
+            tableView.cellForRow(at: IndexPath(row:2, section: 1))?.accessoryType = .none
             
             if let cell = tableView.cellForRow(at: indexPath) {
                 if indexPath.row == 0 {
-                    // set pin to black
+                    UserDefaults.standard.set("hybrid", forKey: "mapType")
                 }
                 
                 if indexPath.row == 1 {
-                    // set pin to red
+                    UserDefaults.standard.set("satelite", forKey: "mapType")
                 }
                 
                 if indexPath.row == 2 {
-                    // set pin to green
+                    UserDefaults.standard.set("standard", forKey: "mapType")
                 }
                 
                 // Add a checkmark

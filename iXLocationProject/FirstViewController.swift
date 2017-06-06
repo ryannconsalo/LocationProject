@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActivityDelegate {
+class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActivityDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var map: MKMapView!
     
@@ -20,6 +20,13 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
     //added comment
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        /*let location = CLLocationCoordinate2D(latitude: -33.918861, longitude: 18.423300)
+        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let region = MKCoordinateRegion(center: location, span: span)
+        //map.setRegion(region, animated: true)
+        */
+        //map.showsUserLocation = true
         
         locationManager = CLLocationManager()
         //instantiate LocationManager
@@ -35,16 +42,18 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
         
         //locationManager.requestWhenInUseAuthorization()
         
-        let location = CLLocationCoordinate2D(latitude: currentUserLocation.coordinate.latitude, longitude: currentUserLocation.coordinate.longitude)
-        let span = MKCoordinateSpan(0.05, 0.05)
-        let region = MKCoordinateRegion(center: location, span: span)
-        map.setRegion(region, animated: true)
+
         
-        map.showUserLoction = true
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
         }
+        
+        setMapType()
+    }
+    
+    override func viewDidAppear(_ _animated: Bool) {
+        setMapType()
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,31 +86,38 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
         print("Error \(error)")
     }
     
-    override func prepare(for segue: UIStoryBoardSegue, sender:Any) {
+    override func prepare(for segue: UIStoryboardSegue, sender:Any?) {
         if segue.identifier == "addActivity" {
-            let geopoint = GeoPoint(latitude: currentUserLocation.coordinate.latitude, longitude: currentUserLocation.coordinate.longitude)
+            let geopoint = GeoPoint(latitude: currentUserLocation.coordinate.latitude, longitutde: currentUserLocation.coordinate.longitude)
             let activityWithCurrentLocation = Activity()
             activityWithCurrentLocation?.location = geopoint
             
             let navigationController = segue.destination as! UINavigationController
             let addActivityViewController = navigationController.topViewController as! AddActivityViewController
             
-            addActivityViewController.newActivity = activityWithcurrentLocation
+            addActivityViewController.newActivity = activityWithCurrentLocation
             addActivityViewController.delegate = self
             
         }
     }
     
     func setMapType() {
-        let mapType = UserDefaults.standard.string(forKey: "mapType")
+     /*   let mapType = UserDefaults.standard.string(forKey: "mapType")
         
         if mapType != nil {
             if mapType == "hybrid" {
                 map.mapType = .hybrid
             }
             
-            // have if statements for all options
-        }
+            if mapType == "satellite" {
+                map.mapType = .satellite
+            }
+            
+            if mapType == "standard" {
+                map.mapType = .standard
+            }
+            
+        }*/
         
     }
     
@@ -116,6 +132,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
     
     func didCancelActivity() {
         
+    }
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        map.centerCoordinate = userLocation.location!.coordinate
     }
     
     
