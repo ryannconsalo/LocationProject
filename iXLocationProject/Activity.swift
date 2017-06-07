@@ -17,6 +17,13 @@ class Activity {
     var image: UIImage?
     
     
+    init?(name: String?, description: String?) {
+        self.name = name
+        self.description = description
+        self.image = nil
+        self.location = GeoPoint(latitude: 0.0, longitutde: 0.0)
+    }
+    
     init?() {
         self.name = ""
         self.description = ""

@@ -21,7 +21,7 @@ class AddActivityViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var imageView: UIImageView!
     
     var delegate: AddActivityDelegate?
-    var newActivity: Activity?
+    var newActivity : Activity?
     
     
     override func viewDidLoad() {
@@ -37,11 +37,18 @@ class AddActivityViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func addActivity(_ sender: Any) {
         
-        newActivity?.name = nameTextField.text!
-        newActivity?.description = descriptionTextView.text
-        delegate?.didSaveActivity(activity: newActivity!)
-        if (locationTextField != nil && dateTextField != nil && nameTextField != nil && descriptionTextView != nil) {
-            dismiss(animated: true, completion: nil)
+        if (nameTextField.text?.isEmpty)! {
+            let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+            let alertController = UIAlertController(title: "Error", message: "Please enter some text", preferredStyle: .alert)
+            
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        else {
+            let newActivity = Activity(name: nameTextField.text, description: descriptionTextView.text)
+            delegate?.didSaveActivity(activity: newActivity!)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ActivityTableViewController: UITableViewController {
+class ActivityTableViewController: UITableViewController, AddActivityDelegate {
     
     var activities : [Activity] = []
+    var currentlySelectedIndexPath : IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,7 @@ class ActivityTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "details", sender: self)
+        currentlySelectedIndexPath = indexPath
     }
 
     
@@ -59,6 +60,10 @@ class ActivityTableViewController: UITableViewController {
         return cell
     }
     
+    func didSaveActivity(activity: Activity) {
+        activities.append(activity)
+        self.tableView.reloadData()
+    }
     
     /*
     // Override to support conditional editing of the table view.
@@ -95,14 +100,30 @@ class ActivityTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "details" {
+            let activityDetailsViewController = segue.destination as! ActivityDetailsViewController
+            
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: cell)
+            
+            activityDetailsViewController.activity = activities[(indexPath?.row)!]
+        }
+        
+        if segue.identifier == "navToAddActivity" {
+            let navigationViewController = segue.destination as! UINavigationController
+            let addActivityViewController = navigationViewController.topViewController as! AddActivityViewController
+            addActivityViewController.delegate = self
+        }
+        
     }
-    */
+ 
 
 }

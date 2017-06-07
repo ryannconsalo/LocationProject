@@ -20,6 +20,7 @@
 		9275D2491EE6A9E000C47AD4 /* AddActivityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275D2481EE6A9E000C47AD4 /* AddActivityDelegate.swift */; };
 		9275D24D1EE74AC100C47AD4 /* ActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275D24C1EE74AC100C47AD4 /* ActivityDetailsViewController.swift */; };
 		9275D2501EE74E1300C47AD4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9275D24F1EE74E1300C47AD4 /* CoreLocation.framework */; };
+		9275D27A1EE829CF00C47AD4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275D2791EE829CF00C47AD4 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		9275D2481EE6A9E000C47AD4 /* AddActivityDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddActivityDelegate.swift; sourceTree = "<group>"; };
 		9275D24C1EE74AC100C47AD4 /* ActivityDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityDetailsViewController.swift; path = ../ActivityDetailsViewController.swift; sourceTree = "<group>"; };
 		9275D24F1EE74E1300C47AD4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9275D2791EE829CF00C47AD4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				9275D2461EE6A9C000C47AD4 /* ActivityTableViewController.swift */,
 				9275D2481EE6A9E000C47AD4 /* AddActivityDelegate.swift */,
 				9275D22E1EE57A3500C47AD4 /* Main.storyboard */,
+				9275D2791EE829CF00C47AD4 /* ProfileViewController.swift */,
 				9275D2401EE6A90300C47AD4 /* GeoPoint.swift */,
 				9275D2421EE6A93300C47AD4 /* Activity.swift */,
 				9275D23E1EE5ADA400C47AD4 /* AddActivityViewController.swift */,
@@ -171,6 +174,7 @@
 			files = (
 				9275D2411EE6A90300C47AD4 /* GeoPoint.swift in Sources */,
 				9275D2491EE6A9E000C47AD4 /* AddActivityDelegate.swift in Sources */,
+				9275D27A1EE829CF00C47AD4 /* ProfileViewController.swift in Sources */,
 				9275D2431EE6A93300C47AD4 /* Activity.swift in Sources */,
 				9275D2291EE57A3500C47AD4 /* AppDelegate.swift in Sources */,
 				9275D24D1EE74AC100C47AD4 /* ActivityDetailsViewController.swift in Sources */,

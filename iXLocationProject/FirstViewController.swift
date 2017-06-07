@@ -69,7 +69,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
         let region : MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
         map.setRegion(region, animated: true)
         */
-        self.map.showsUserLocation = true
+        //self.map.showsUserLocation = true
         
         
         // You can call stopUpdatingLocation() to stop listening for location updates

@@ -1,33 +1,33 @@
 //
-//  ActivityDetailsViewController.swift
+//  ProfileViewController.swift
 //  iXLocationProject
 //
-//  Created by Ryann Consalo on 2017/06/06.
+//  Created by Ryann Consalo on 2017/06/07.
 //  Copyright © 2017 Ryann Consalo. All rights reserved.
 //
 
 import UIKit
 
-class ActivityDetailsViewController: UIViewController {
-    
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    var activity: Activity?
-    @IBOutlet weak var descriptionLabel: UITextView!
+class ProfileViewController: UIViewController {
 
-    @IBAction func backButton(_ sender: Any) {
+    @IBAction func back(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-
     }
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    @IBOutlet weak var addressTextField: UITextField!
+    
+    let defaults: UserDefaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        nameLabel.text = activity?.name
-        descriptionLabel.text = activity?.description
+    override func viewWillDisappear(_ animated: Bool) {
+        defaults.set(nameTextField.text, forKey: "name")
+        defaults.set(addressTextField.text, forKey: "address")
     }
 
     override func didReceiveMemoryWarning() {
