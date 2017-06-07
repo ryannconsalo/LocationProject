@@ -21,7 +21,15 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        var n = UserDefaults.standard.string(forKey: "name")
+        var a = UserDefaults.standard.string(forKey: "address")
+        if n != nil {
+            nameTextField.text = n
+        }
+        if a != nil {
+            addressTextField.text = a
+        }
         // Do any additional setup after loading the view.
     }
     

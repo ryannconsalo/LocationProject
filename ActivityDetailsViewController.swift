@@ -28,6 +28,7 @@ class ActivityDetailsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         nameLabel.text = activity?.name
         descriptionLabel.text = activity?.description
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -17,6 +17,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
     var locationManager: CLLocationManager!
     var currentUserLocation: CLLocation!
     
+    
     override func viewDidLoad() {
     //added comment
         super.viewDidLoad()
@@ -75,8 +76,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
         // You can call stopUpdatingLocation() to stop listening for location updates
         // manager.stopUpdatingLocation()
         
-        print("user latitude = \(userLocation.coordinate.latitude)")
-        print("user longitude = \(userLocation.coordinate.longitude)")
+        //print("user latitude = \(userLocation.coordinate.latitude)")
+        //print("user longitude = \(userLocation.coordinate.longitude)")
         
         // Store reference to the users location in the class instance (self)
         // Don't need to use self, but you can
@@ -106,7 +107,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
     }
     
     func setMapType() {
-     /*   let mapType = UserDefaults.standard.string(forKey: "mapType")
+        let mapType = UserDefaults.standard.string(forKey: "mapType")
+        
+        /*if mapType == nil {
+            map.mapType = .standard
+            UserDefaults.standard.set("standard", forKey: "mapType")
+        }
         
         if mapType != nil {
             if mapType == "hybrid" {
@@ -121,8 +127,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
                 map.mapType = .standard
             }
             
-        }*/
-        
+        }
+*/
     }
     
     
