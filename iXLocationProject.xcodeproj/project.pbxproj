@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045211050E51E726327A6CA1 /* Pods_iXLocationProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F7FA196FC0838EBBDE750E /* Pods_iXLocationProject.framework */; };
 		9275D2291EE57A3500C47AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275D2281EE57A3500C47AD4 /* AppDelegate.swift */; };
 		9275D22B1EE57A3500C47AD4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275D22A1EE57A3500C47AD4 /* FirstViewController.swift */; };
 		9275D2301EE57A3500C47AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9275D22E1EE57A3500C47AD4 /* Main.storyboard */; };
@@ -21,9 +22,11 @@
 		9275D24D1EE74AC100C47AD4 /* ActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275D24C1EE74AC100C47AD4 /* ActivityDetailsViewController.swift */; };
 		9275D2501EE74E1300C47AD4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9275D24F1EE74E1300C47AD4 /* CoreLocation.framework */; };
 		9275D27A1EE829CF00C47AD4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275D2791EE829CF00C47AD4 /* ProfileViewController.swift */; };
+		9275D27C1EE95BD400C47AD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9275D27B1EE95BD400C47AD4 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00F7FA196FC0838EBBDE750E /* Pods_iXLocationProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iXLocationProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9275D2251EE57A3500C47AD4 /* iXLocationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iXLocationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9275D2281EE57A3500C47AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9275D22A1EE57A3500C47AD4 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +43,9 @@
 		9275D24C1EE74AC100C47AD4 /* ActivityDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityDetailsViewController.swift; path = ../ActivityDetailsViewController.swift; sourceTree = "<group>"; };
 		9275D24F1EE74E1300C47AD4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9275D2791EE829CF00C47AD4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9275D27B1EE95BD400C47AD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		98CCC70C50305FDD7187EE4D /* Pods-iXLocationProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXLocationProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-iXLocationProject/Pods-iXLocationProject.release.xcconfig"; sourceTree = "<group>"; };
+		AE08359871B2D47627DC01C4 /* Pods-iXLocationProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXLocationProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iXLocationProject/Pods-iXLocationProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,18 +54,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				9275D2501EE74E1300C47AD4 /* CoreLocation.framework in Frameworks */,
+				045211050E51E726327A6CA1 /* Pods_iXLocationProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		535C064B63B69A11729793D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE08359871B2D47627DC01C4 /* Pods-iXLocationProject.debug.xcconfig */,
+				98CCC70C50305FDD7187EE4D /* Pods-iXLocationProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9275D21C1EE57A3500C47AD4 = {
 			isa = PBXGroup;
 			children = (
 				9275D2271EE57A3500C47AD4 /* iXLocationProject */,
 				9275D2261EE57A3500C47AD4 /* Products */,
 				9275D24E1EE74E1200C47AD4 /* Frameworks */,
+				535C064B63B69A11729793D5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +100,7 @@
 				9275D22E1EE57A3500C47AD4 /* Main.storyboard */,
 				9275D2791EE829CF00C47AD4 /* ProfileViewController.swift */,
 				9275D2401EE6A90300C47AD4 /* GeoPoint.swift */,
+				9275D27B1EE95BD400C47AD4 /* GoogleService-Info.plist */,
 				9275D2421EE6A93300C47AD4 /* Activity.swift */,
 				9275D23E1EE5ADA400C47AD4 /* AddActivityViewController.swift */,
 				9275D2311EE57A3500C47AD4 /* Assets.xcassets */,
@@ -96,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				9275D24F1EE74E1300C47AD4 /* CoreLocation.framework */,
+				00F7FA196FC0838EBBDE750E /* Pods_iXLocationProject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,9 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9275D2391EE57A3500C47AD4 /* Build configuration list for PBXNativeTarget "iXLocationProject" */;
 			buildPhases = (
+				3883EC111799322D7319EB93 /* [CP] Check Pods Manifest.lock */,
 				9275D2211EE57A3500C47AD4 /* Sources */,
 				9275D2221EE57A3500C47AD4 /* Frameworks */,
 				9275D2231EE57A3500C47AD4 /* Resources */,
+				C45764218C4CF9A242CAD65A /* [CP] Embed Pods Frameworks */,
+				77B4DF0B61CC761361384409 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +154,7 @@
 				TargetAttributes = {
 					9275D2241EE57A3500C47AD4 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 8T292GBJ5W;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -160,12 +183,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				9275D2351EE57A3500C47AD4 /* LaunchScreen.storyboard in Resources */,
+				9275D27C1EE95BD400C47AD4 /* GoogleService-Info.plist in Resources */,
 				9275D2321EE57A3500C47AD4 /* Assets.xcassets in Resources */,
 				9275D2301EE57A3500C47AD4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3883EC111799322D7319EB93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		77B4DF0B61CC761361384409 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iXLocationProject/Pods-iXLocationProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C45764218C4CF9A242CAD65A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iXLocationProject/Pods-iXLocationProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9275D2211EE57A3500C47AD4 /* Sources */ = {
@@ -304,8 +376,10 @@
 		};
 		9275D23A1EE57A3500C47AD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE08359871B2D47627DC01C4 /* Pods-iXLocationProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8T292GBJ5W;
 				INFOPLIST_FILE = iXLocationProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ryann-Consalo.iXLocationProject";
@@ -316,8 +390,10 @@
 		};
 		9275D23B1EE57A3500C47AD4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98CCC70C50305FDD7187EE4D /* Pods-iXLocationProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8T292GBJ5W;
 				INFOPLIST_FILE = iXLocationProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ryann-Consalo.iXLocationProject";

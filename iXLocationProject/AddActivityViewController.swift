@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class AddActivityViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -36,6 +37,20 @@ class AddActivityViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func addActivity(_ sender: Any) {
+        
+        newActivity?.name = nameTextField.text!
+        newActivity?.description = descriptionTextView.text
+        
+         Alamofire.request("https://ixlocationproject.firebaseio.com/activities.json", method: .post, parameters: newActivity?.toJSON(), encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case.success(let _):
+                self.delegate?.didSaveActivity(activity: self.newActivity!)
+                self.dismiss(animated: true, completion: nil)
+            case .failure: break
+            }
+        }
+        
+        
         
         if (nameTextField.text?.isEmpty)! {
             let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)

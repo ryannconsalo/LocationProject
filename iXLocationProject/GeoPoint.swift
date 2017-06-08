@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Gloss
 
 
 class GeoPoint {
@@ -17,5 +18,22 @@ class GeoPoint {
     init(latitude lat: Double, longitutde long: Double!) {
         self.lat = lat
         self.long = long
+    }
+    
+    init() {
+        self.lat = 0.0
+        self.long = 0.0
+    }
+    
+    required init?(json: JSON) {
+        self.lat = "lat" <~~ json
+        self.long = "lng" <~~ json
+    }
+    
+    func toJSON() -> JSON? {
+        return jsonify([
+            "lat" ~~> self.lat,
+            "lng" ~~> self.long
+            ])
     }
 }

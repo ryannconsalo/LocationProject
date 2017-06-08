@@ -9,6 +9,9 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Alamofire
+import Gloss
+
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActivityDelegate, MKMapViewDelegate {
     
@@ -16,11 +19,13 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
     
     var locationManager: CLLocationManager!
     var currentUserLocation: CLLocation!
+    var activities : [Activity] = []
     
     
     override func viewDidLoad() {
     //added comment
         super.viewDidLoad()
+        UserDefaults.standard.set("standard", forKey: "mapType")
         // Do any additional setup after loading the view, typically from a nib.
         
         //let location = CLLocationCoordinate2D(latitude: -33.918861, longitude: 18.423300)
@@ -45,6 +50,42 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
         //locationManager.requestWhenInUseAuthorization()
         
         locationManager.startUpdatingLocation()
+        
+        Alamofire.request("https://ixlocationproject.firebaseio.com/activities.json?auth=4oN5mfyh6Y82NBiSMCnvW3FzkXGNIkhSYz7PvUkA").responseJSON { response in
+            //print(response.request)  // original URL request
+            //print(response.response) // HTTP URL response
+            //print(response.data)     // server data
+            //print(response.result)   // result of response serialization
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+                
+                let response = JSON as! NSDictionary
+                
+                for (key, value) in response {
+                    let activity = Activity()
+                    
+                    if let actDictionary = value as? [String : AnyObject] {
+                        activity?.name = actDictionary["name"] as! String
+                        activity?.description = actDictionary["description"] as! String
+                        
+                        if let geoPointDictionary = actDictionary["location"] as? [String: AnyObject] {
+                            let location = GeoPoint()
+                            location.lat = geoPointDictionary["lat"] as? Double
+                            location.long = geoPointDictionary["lng"] as? Double
+                            activity?.location = location
+                            
+                            let annotation = MKPointAnnotation()
+                            annotation.coordinate = CLLocationCoordinate2DMake((activity?.location?.lat!)!, (activity?.location?.long!)!);
+                            annotation.title = activity?.name
+                            //self.map.addAnnotation(annotation)
+                        }
+                    }
+                    
+                    self.activities.append(activity!)
+                }
+            }
+        }
         
         setMapType()
     }
@@ -107,14 +148,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
     }
     
     func setMapType() {
-        let mapType = UserDefaults.standard.string(forKey: "mapType")
+        //let mapType = UserDefaults.standard.string(forKey: "mapType")
         
-        /*if mapType == nil {
-            map.mapType = .standard
-            UserDefaults.standard.set("standard", forKey: "mapType")
-        }
-        
-        if mapType != nil {
+        /*if mapType != nil {
             if mapType == "hybrid" {
                 map.mapType = .hybrid
             }
@@ -127,15 +163,14 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, AddActiv
                 map.mapType = .standard
             }
             
-        }
-*/
+        }*/
     }
     
     
     func didSaveActivity(activity: Activity) {
         print(activity)
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2DMake(activity.location.lat, activity.location.long)
+        annotation.coordinate = CLLocationCoordinate2DMake((activity.location?.lat)!, (activity.location?.long)!)
         annotation.title = activity.name
         map.addAnnotation(annotation)
     }
